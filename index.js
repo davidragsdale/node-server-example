@@ -7,8 +7,17 @@ export default (req, res) => {
   const handleRoute = (handler) => handler(req, res);
 
   switch (`${req.method}:${req.URL.pathname}`) {
+    case 'GET:/file-stream': {
+      handleRoute(routes.getFileStream);
+      break;
+    }
     case 'GET:/hello': {
       handleRoute(routes.getHello);
+      break;
+    }
+    case 'GET:/payload': {
+      handleRoute(routes.getPayload);
+      break;
     }
     default: {
       handleRoute(routes.notFound);
